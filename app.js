@@ -44,7 +44,7 @@ function createViewer(root, { src, startU, spots, onReady }) {
   const camera = new THREE.PerspectiveCamera(72, 1, .1, 100);
   camera.rotation.order = 'YXZ';
 
-  let H = 1, yaw = uToYaw(startU), pitch = 0, fov = 72, tFov = 72, vYaw = 0;
+  let H = 1, yaw = uToYaw(startU), pitch = 0, fov = 92, tFov = 92, vYaw = 0;
   let auto = true, dragging = false, lastInput = 0, ready = false, visible = false;
 
   new THREE.TextureLoader().load(src, tex => {
@@ -90,7 +90,7 @@ function createViewer(root, { src, startU, spots, onReady }) {
     if (pts.size === 2) {
       pts.set(e.pointerId, e);
       const [a, b] = [...pts.values()], d = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
-      tFov = clamp(tFov * pinch0 / d, 35, 95); pinch0 = d; return;
+      tFov = clamp(tFov * pinch0 / d, 35, 100); pinch0 = d; return;
     }
     const k = fov / host.clientHeight * Math.PI / 180;
     const dx = e.clientX - p.clientX, dy = e.clientY - p.clientY;
@@ -101,7 +101,7 @@ function createViewer(root, { src, startU, spots, onReady }) {
   host.addEventListener('pointerup', up); host.addEventListener('pointercancel', up);
   host.addEventListener('wheel', e => {
     if (!e.ctrlKey && !e.shiftKey) return;           // la rueda normal sigue haciendo scroll de la página
-    e.preventDefault(); tFov = clamp(tFov + e.deltaY * .04, 35, 95); stopAuto();
+    e.preventDefault(); tFov = clamp(tFov + e.deltaY * .04, 35, 100); stopAuto();
   }, { passive: false });
   host.addEventListener('keydown', e => {
     const s = .08;
@@ -112,8 +112,8 @@ function createViewer(root, { src, startU, spots, onReady }) {
     stopAuto();
   });
   bAuto.onclick = () => { auto = !auto; bAuto.classList.toggle('on', auto); };
-  q('.b-zin').onclick = () => tFov = clamp(tFov - 12, 35, 95);
-  q('.b-zout').onclick = () => tFov = clamp(tFov + 12, 35, 95);
+  q('.b-zin').onclick = () => tFov = clamp(tFov - 12, 35, 100);
+  q('.b-zout').onclick = () => tFov = clamp(tFov + 12, 35, 100);
 
   let gyro = false, g0 = null;
   if (matchMedia('(pointer:coarse)').matches && 'DeviceOrientationEvent' in window) bGyro.hidden = false;

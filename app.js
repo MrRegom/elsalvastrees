@@ -168,18 +168,23 @@ document.querySelectorAll('.pola').forEach(p => p.onclick = () => {
 
 /* sección "afuera": el scroll desplaza la foto de lado a lado */
 const af = $('#afuera'), strip = $('#strip'), bar = $('#bar'), title = document.querySelector('.afuera-title');
+let target = 0, shown = 0;
 function onScroll() {
   const r = af.getBoundingClientRect();
-  const p = clamp(-r.top / (r.height - innerHeight), 0, 1);
+  target = clamp(-r.top / (r.height - innerHeight), 0, 1);
+}
+function glide() {          // suaviza el movimiento (interpolación) para que fluya
+  shown += (target - shown) * .09;
+  if (Math.abs(target - shown) < .0002) shown = target;
   const max = Math.max(0, strip.scrollWidth - innerWidth);
-  strip.style.transform = `translate3d(${-p * max}px,0,0)`;
-  bar.style.width = p * 100 + '%';
-  title.style.opacity = p > .12 ? 0 : 1;
+  strip.style.transform = `translate3d(${-shown * max}px,0,0)`;
+  bar.style.width = shown * 100 + '%';
+  title.style.opacity = clamp(1 - shown * 9, 0, 1);
+  requestAnimationFrame(glide);
 }
 addEventListener('scroll', onScroll, { passive: true });
 addEventListener('resize', onScroll);
-strip.querySelector('img').addEventListener('load', onScroll);
-onScroll();
+onScroll(); glide();
 
 document.querySelectorAll('[data-cfg]').forEach(el => el.textContent = CONFIG[el.dataset.cfg]);
 $('#wa').href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(CONFIG.waText)}`;

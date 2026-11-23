@@ -24,9 +24,9 @@
 
 <!-- ============ HERO: INTERIOR 360 ============ -->
 <section class="hero" id="top">
-  <div class="pano" id="pano" aria-label="Recorrido 360° del interior de la tienda" tabindex="0"></div>
+  <div class="pano" aria-label="Recorrido 360° del interior de la tienda" tabindex="0"></div>
   <div class="shade"></div>
-  <div class="hs-layer" id="hotspots"></div>
+  <div class="hs-layer"></div>
 
   <div class="hero-copy">
     <h1>Pasa, mira<br>alrededor.</h1>
@@ -34,13 +34,13 @@
   </div>
 
   <div class="tools">
-    <button id="btn-auto" class="on">Girar solo</button>
-    <button id="btn-zout" aria-label="Alejar">−</button>
-    <button id="btn-zin" aria-label="Acercar">+</button>
-    <button id="btn-gyro" hidden>Usar el móvil</button>
+    <button class="b-auto on">Girar solo</button>
+    <button class="b-zout" aria-label="Alejar">−</button>
+    <button class="b-zin" aria-label="Acercar">+</button>
+    <button class="b-gyro" hidden>Usar el móvil</button>
   </div>
   <a class="down" href="#adentro" aria-label="Seguir bajando"><span></span></a>
-  <div class="hint" id="hint">← arrastra →</div>
+  <div class="hint">← arrastra →</div>
   <div class="loader" id="loader"><img src="assets/logo.webp" alt=""><p>Abriendo la puerta…</p></div>
 </section>
 
@@ -62,23 +62,22 @@
   </div>
 </section>
 
-<!-- ============ AFUERA (scroll horizontal) ============ -->
-<section class="afuera" id="afuera">
-  <div class="sticky">
-    <div class="afuera-title">
-      <h2>Y por fuera,<br>así.</h2>
-      <p>Sigue bajando.</p>
-    </div>
-    <div class="strip" id="strip">
-      <img src="assets/exterior.jpg" alt="Terraza y entrada de El Salvastrees">
-      <span class="cap" style="--x:7%;--y:20%">aquí se entra</span>
-      <span class="cap" style="--x:24%;--y:30%">ropa y detalles en la puerta</span>
-      <span class="cap" style="--x:50%;--y:6%">techo de caña</span>
-      <span class="cap" style="--x:60%;--y:62%">un sillón para esperar</span>
-      <span class="cap" style="--x:70%;--y:30%">los guacamayos</span>
-    </div>
-    <div class="progress"><i id="bar"></i></div>
+<!-- ============ AFUERA 360 ============ -->
+<section class="hero afuera" id="afuera">
+  <div class="pano" aria-label="Recorrido 360° de la entrada y la terraza" tabindex="0"></div>
+  <div class="shade"></div>
+  <div class="hs-layer"></div>
+  <div class="hero-copy">
+    <h2>Y por fuera,<br>así.</h2>
+    <p>La entrada, la terraza de caña y los guacamayos. También se recorre en 360°: arrastra.</p>
   </div>
+  <div class="tools">
+    <button class="b-auto on">Girar solo</button>
+    <button class="b-zout" aria-label="Alejar">−</button>
+    <button class="b-zin" aria-label="Acercar">+</button>
+    <button class="b-gyro" hidden>Usar el móvil</button>
+  </div>
+  <div class="hint">← arrastra →</div>
 </section>
 
 <!-- ============ VISÍTANOS ============ -->

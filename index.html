@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El Salvastrees · Pets, Home, Decoración</title>
+<meta name="description" content="Tienda de mascotas, hogar y decoración. Date una vuelta por dentro en 360° y mira cómo llegar.">
+<meta property="og:title" content="El Salvastrees · Pets · Home · Decoración">
+<meta property="og:image" content="assets/interior.jpg">
+<link rel="icon" href="assets/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="brand" href="#top" aria-label="El Salvastrees, inicio"><img src="assets/logo.webp" alt="El Salvastrees — Pets · Home · Decoración"></a>
+<nav class="menu">
+  <a href="#adentro">Adentro</a>
+  <a href="#afuera">Afuera</a>
+  <a href="#visitanos">Dónde estamos</a>
+</nav>
+
+<!-- ============ HERO: INTERIOR 360 ============ -->
+<section class="hero" id="top">
+  <div class="pano" id="pano" aria-label="Recorrido 360° del interior de la tienda" tabindex="0"></div>
+  <div class="shade"></div>
+  <div class="hs-layer" id="hotspots"></div>
+
+  <div class="hero-copy">
+    <h1>Pasa, mira<br>alrededor.</h1>
+    <p>Mascotas, cosas para la casa y decoración, todo en el mismo lugar. Arrastra para recorrer la tienda por dentro.</p>
+  </div>
+
+  <div class="tools">
+    <button id="btn-auto" class="on">Girar solo</button>
+    <button id="btn-zout" aria-label="Alejar">−</button>
+    <button id="btn-zin" aria-label="Acercar">+</button>
+    <button id="btn-gyro" hidden>Usar el móvil</button>
+  </div>
+  <a class="down" href="#adentro" aria-label="Seguir bajando"><span></span></a>
+  <div class="hint" id="hint">← arrastra →</div>
+  <div class="loader" id="loader"><img src="assets/logo.webp" alt=""><p>Abriendo la puerta…</p></div>
+</section>
+
+<!-- ============ ADENTRO ============ -->
+<section class="adentro" id="adentro">
+  <div class="wrap">
+    <div class="head">
+      <h2>Lo que hay <span class="mark">adentro</span></h2>
+      <p>No hay un pasillo igual al otro. Toca una foto y te llevamos a ese rincón en el recorrido.</p>
+    </div>
+
+    <div class="polas">
+      <figure class="pola p1" data-u="0.30"><div style="--x:30%;--s:300%"></div><figcaption>La caja y las vitrinas</figcaption></figure>
+      <figure class="pola p2" data-u="0.84"><div style="--x:84%;--s:260%"></div><figcaption>Peluches por montones</figcaption></figure>
+      <figure class="pola p3" data-u="0.03"><div style="--x:4%;--s:280%"></div><figcaption>Vajilla, velas, cerámica</figcaption></figure>
+      <figure class="pola p4" data-u="0.15"><div style="--x:15%;--s:300%"></div><figcaption>Collares y correas</figcaption></figure>
+      <p class="note n1">¡y siempre hay algo nuevo!</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AFUERA (scroll horizontal) ============ -->
+<section class="afuera" id="afuera">
+  <div class="sticky">
+    <div class="afuera-title">
+      <h2>Y por fuera,<br>así.</h2>
+      <p>Sigue bajando.</p>
+    </div>
+    <div class="strip" id="strip">
+      <img src="assets/exterior.jpg" alt="Terraza y entrada de El Salvastrees">
+      <span class="cap" style="--x:7%;--y:20%">aquí se entra</span>
+      <span class="cap" style="--x:24%;--y:30%">ropa y detalles en la puerta</span>
+      <span class="cap" style="--x:50%;--y:6%">techo de caña</span>
+      <span class="cap" style="--x:60%;--y:62%">un sillón para esperar</span>
+      <span class="cap" style="--x:70%;--y:30%">los guacamayos</span>
+    </div>
+    <div class="progress"><i id="bar"></i></div>
+  </div>
+</section>
+
+<!-- ============ VISÍTANOS ============ -->
+<section class="visit" id="visitanos">
+  <div class="wrap two">
+    <div>
+      <h2>Dónde<br>estamos</h2>
+      <dl>
+        <dt>Dirección</dt><dd data-cfg="address"></dd>
+        <dt>Horario</dt><dd data-cfg="hours"></dd>
+        <dt>Teléfono</dt><dd data-cfg="phone"></dd>
+        <dt>Instagram</dt><dd data-cfg="instagram"></dd>
+      </dl>
+      <a class="btn" id="wa" href="#" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+    </div>
+    <div class="door"><img src="assets/exterior.jpg" alt="Entrada de El Salvastrees"></div>
+  </div>
+</section>
+
+<footer>
+  <img src="assets/logo.webp" alt="El Salvastrees">
+  <p>© <span id="yr"></span> El Salvastrees</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
